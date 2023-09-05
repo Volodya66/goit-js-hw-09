@@ -39,7 +39,6 @@ buttonOf.addEventListener('click', () => {
   changeResult = true;
   clearInterval(intervalId);
   buttonOn.removeAttribute('disabled');
-  body.style.backgroundColor ="";
   console.log("статус при натисканні кнопки СТОП",changeResult);
 
 })

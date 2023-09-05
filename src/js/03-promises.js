@@ -26,23 +26,24 @@ function createPromise(position, delay) {
 function onCreatingPromise(evt) {
   evt.preventDefault();
   
-  const numberDelay = Number(inputValueFirstDelayMS.value);
+  let numberDelay = Number(inputValueFirstDelayMS.value);
   const step = Number(inputValueDelayStep.value)
   const amount = Number(inputValueAmount.value);
   
 
   for (let i = 1; i <= amount; i += 1){
-    let timeDelayStep = numberDelay +  step * i;
+ 
   
     
 
-  createPromise(i, timeDelayStep)
+  createPromise(i, numberDelay)
   .then(({ position, delay }) => {
      Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
   })
   .catch(({ position, delay }) => {
      Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
   });
+    numberDelay+= step;
 }
 
   }
